@@ -8,15 +8,9 @@
 <FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-cursor: none;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
 
     <TextField>
-        <font>
-            <Font size="28.0" />
-        </font>
         <cursor>
             <Cursor fx:constant="NONE" />
         </cursor></TextField>
-    <Button text="Send">
-      <font>
-         <Font size="28.0" />
-      </font></Button>
+    <Button text="Send"></Button>
 
 </FlowPane>
