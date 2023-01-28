@@ -92,6 +92,15 @@
                 <artifactId>gluonfx-maven-plugin</artifactId>
                 <version>${gluonfx.maven.plugin.version}</version>
                 <configuration>
+                    <reflectionList>
+                    <list>javafx.scene.layout.VBox</list>
+
+                        <list>javafx.scene.Cursor</list>
+                        <list>javafx.scene.control.TextField</list>
+                        <list>javafx.scene.control.Button</list>
+                        <list>javafx.scene.layout.FlowPane</list>
+                        <list>javafx.scene.text.Font</list>
+                    </reflectionList>
                     <target>${gluonfx.target}</target>
                     <mainClass>${main.class}</mainClass>
                     <runtimeArgs>${runtime.options}</runtimeArgs>
