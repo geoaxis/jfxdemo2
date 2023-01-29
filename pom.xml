@@ -131,6 +131,7 @@
                         <list>javafx.scene.control.Button</list>
                         <list>javafx.scene.layout.FlowPane</list>
                         <list>javafx.scene.text.Font</list>
+                        <list>jnr.ffi.provider.jffi.Provider</list>
                     </reflectionList>
                     <target>${gluonfx.target}</target>
                     <mainClass>${main.class}</mainClass>
