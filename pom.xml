@@ -17,6 +17,11 @@
         <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
         <gluonfx.maven.plugin.version>1.0.16</gluonfx.maven.plugin.version>
         <gluonfx.target>host</gluonfx.target>
+        <blessed-bluez-version>0.61</blessed-bluez-version>
+        <lombok.version>1.18.24</lombok.version>
+        <jetbrains.annotations.version>24.0.0</jetbrains.annotations.version>
+
+
     </properties>
 
     <dependencies>
@@ -43,6 +48,25 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.weliem.blessed-bluez</groupId>
+            <artifactId>blessed</artifactId>
+            <version>${blessed-bluez-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${jetbrains.annotations.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -54,6 +78,13 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <annotationProcessorPaths>
+                        <annotationProcessorPath>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </annotationProcessorPath>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
@@ -93,7 +124,7 @@
                 <version>${gluonfx.maven.plugin.version}</version>
                 <configuration>
                     <reflectionList>
-                    <list>javafx.scene.layout.VBox</list>
+                        <list>javafx.scene.layout.VBox</list>
 
                         <list>javafx.scene.Cursor</list>
                         <list>javafx.scene.control.TextField</list>
@@ -119,8 +150,12 @@
                 <remote.host.name>pi@raspberrypi.local</remote.host.name>
                 <remote.dir>/home/pi/Downloads/samples/hellopi</remote.dir>
                 <remote.sdk.path>/opt/javafx-sdk-17</remote.sdk.path>
-                <runtime.options>-Duse.fullscreen=true,-Dmonocle.platform=EGL,-Dembedded=monocle,-Dglass.platform=Monocle</runtime.options>
-                <runtime.jvm.options>-Dmonocle.egl.lib=${remote.sdk.path}/lib/libgluon_drm-${drm.version}.so,${runtime.options}</runtime.jvm.options>
+                <runtime.options>
+                    -Duse.fullscreen=true,-Dmonocle.platform=EGL,-Dembedded=monocle,-Dglass.platform=Monocle
+                </runtime.options>
+                <runtime.jvm.options>
+                    -Dmonocle.egl.lib=${remote.sdk.path}/lib/libgluon_drm-${drm.version}.so,${runtime.options}
+                </runtime.jvm.options>
             </properties>
         </profile>
         <profile>
@@ -150,4 +185,11 @@
             </dependencies>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 </project>
